@@ -1,0 +1,26 @@
+###############################################################################
+# << FILE MANAGED BY PUPPET >>
+# Manual changes are likey to be overwritten
+###############################################################################
+
+uri  <%= @uri %>
+base <%= @base %>
+
+ldap_version   <%= @version %>
+timelimit      <%= @timelimit %>
+bind_timelimit <%= @bind_timelimit %>
+idle_timelimit <%= @idle_timelimit %>
+deref          never
+
+<% if @binddn != false then -%>
+binddn <%= @binddn %>
+bindpw <%= @bindpw %>
+<% end -%>
+
+<% if @ssl == true then -%>
+ssl           start_tls
+tls_reqcert   <%= @ssl_reqcert %>
+tls_cacertdir <%= scope.lookupvar('ldap::params::cacertdir') %>
+<% end -%>
+uid nslcd
+gid nslcd
