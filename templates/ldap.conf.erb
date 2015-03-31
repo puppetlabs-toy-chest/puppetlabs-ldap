@@ -28,7 +28,7 @@ nss_initgroups_ignoreusers root daemon bin sys sync games man lp mail news uucp 
 <% if @ssl == true then -%>
 ssl           start_tls
 tls_reqcert   <%= @ssl_reqcert %>
-tls_cacertdir <%= scope.lookupvar('ldap::params::cacertdir') %>
+tls_cacert    <%= scope.lookupvar('ldap::params::cacert') %>
 <% end -%>
 
 <% if @pam_filter != false then -%>
