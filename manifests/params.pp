@@ -7,7 +7,7 @@ class ldap::params {
       $owner         = 'root'
       $group         = 'root'
       $config        = 'ldap.conf'
-      $nslcd_package = ['nslcd', 'libnss-ldap']
+      $nslcd_package = ['nslcd', 'libnss-ldapd']
       $cacert        = '/etc/ssl/certs/ldapcabundle.pem'
 
     }
