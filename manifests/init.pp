@@ -109,7 +109,7 @@ class ldap(
     group   => $ldap::params::group,
   }
 
-  file { "${ldap::params::prefix}":
+  file { $ldap::params::prefix:
     ensure  => directory,
     require => Package[$ldap::params::package],
   }
@@ -117,10 +117,8 @@ class ldap(
   file { "${ldap::params::prefix}/${ldap::params::config}": content => template('ldap/ldap.conf.erb'), }
 
   if $nslcd {
-    if $ldap::params::nslcd_package {
-      package { $ldap::params::nslcd_package: ensure => present, notify => Service['nslcd'] }
-    }
-    file { '/etc/nslcd.conf': content => template('ldap/nslcd.conf.erb'), mode => '0640' }
-    service { 'nslcd': ensure => running, require => File['/etc/nslcd.conf'], }
+    include ldap::nslcd
+  } else {
+    class { '::ldap::nslcd': ensure => absent }
   }
 }
