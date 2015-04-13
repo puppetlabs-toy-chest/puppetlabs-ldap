@@ -64,6 +64,9 @@
 #
 #  [nslcd]
 #    If you are going to use nslcd. (defaults to false)
+
+#  [sssd]
+#    If you are going to use sssd. (defaults to false)
 #
 # === Examples
 #
@@ -95,6 +98,7 @@ class ldap(
   $nss_group      = false,
   $nss_shadow     = false,
   $nslcd          = false,
+  $sssd           = false,
   $pam_filter     = false,
 ) {
 
@@ -120,5 +124,11 @@ class ldap(
     include ldap::nslcd
   } else {
     class { '::ldap::nslcd': ensure => absent }
+  }
+
+  if $sssd {
+    include ldap::sssd
+  } else {
+    class { '::ldap::sssd': ensure => absent }
   }
 }

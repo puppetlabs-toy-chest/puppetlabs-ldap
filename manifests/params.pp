@@ -10,6 +10,9 @@ class ldap::params {
       $nslcd_conf    = '/etc/nslcd.conf'
       $nslcd_package = ['nslcd', 'libnss-ldapd']
       $nslcd_service = 'nslcd'
+      $sssd_conf     = '/etc/sssd/sssd.conf'
+      $sssd_package  = ['sssd', 'libnss-sss']
+      $sssd_service  = 'sssd'
       $cacert        = '/etc/ssl/certs/ldapcabundle.pem'
     }
     default:  {

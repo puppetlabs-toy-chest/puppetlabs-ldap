@@ -1,0 +1,47 @@
+[sssd]
+config_file_version = 2
+services = nss, pam
+# SSSD will not start if you do not configure any domains.
+# Add new domain configurations as [domain/<NAME>] sections, and
+# then add the list of domains (in the order you want them to be
+# queried) to the "domains" attribute below and uncomment it.
+domains = LDAP
+
+[nss]
+
+[pam]
+
+# Example LDAP domain
+[domain/LDAP]
+id_provider = ldap
+auth_provider = ldap
+# ldap_schema can be set to "rfc2307", which stores group member names in the
+# "memberuid" attribute, or to "rfc2307bis", which stores group member DNs in
+# the "member" attribute. If you do not know this value, ask your LDAP
+# administrator.
+ldap_schema = <%= @schema %>
+ldap_uri = <%= @uri %>
+ldap_search_base = <%= @search_base %>
+# Note that enabling enumeration will have a moderate performance impact.
+# Consequently, the default value for enumeration is FALSE.
+# Refer to the sssd.conf man page for full details.
+; enumerate = false
+# Allow offline logins by locally storing password hashes (default: false).
+; cache_credentials = true
+
+<% if @bind_dn -%>
+ldap_default_bind_dn = <%= @bind_dn %>
+<% end -%>
+<% if @bind_pw -%>
+ldap_default_authtok = <%= @bind_pw %>
+<% end -%>
+<% if @filter -%>
+ldap_access_filter = <%= @filter %>
+<% end -%>
+<% if @tls_cacert -%>
+ldap_tls_cacert = <%= @tls_cacert %>
+<% end -%>
+<% if @tls_reqcert -%>
+ldap_tls_reqcert = <%= @tls_reqcert %>
+<% end -%>
+
