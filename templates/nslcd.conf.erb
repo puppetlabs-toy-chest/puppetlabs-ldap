@@ -12,12 +12,14 @@ bind_timelimit <%= @bind_timelimit %>
 idle_timelimit <%= @idle_timelimit %>
 deref          never
 
-<% if @binddn != false then -%>
+<% if @binddn -%>
 binddn <%= @binddn %>
+<% end -%>
+<% if @bindpw -%>
 bindpw <%= @bindpw %>
 <% end -%>
 
-<% if @ssl == true then -%>
+<% if @ssl == true -%>
 ssl           start_tls
 tls_reqcert    <%= @ssl_reqcert %>
 tls_cacertfile <%= scope.lookupvar('ldap::params::cacert') %>

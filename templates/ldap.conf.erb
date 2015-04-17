@@ -13,10 +13,13 @@ idle_timelimit <%= @idle_timelimit %>
 bind_policy    soft
 deref          never
 
-<% if @binddn != false then -%>
+<% if @binddn -%>
 binddn <%= @binddn %>
+<% end -%>
+<% if @bindpw -%>
 bindpw <%= @bindpw %>
 <% end -%>
+
 
 <% if @nsswitch == true then -%>
 nss_base_passwd <%= @nss_passwd %>,<%= @base %>?sub
@@ -31,6 +34,6 @@ tls_reqcert   <%= @ssl_reqcert %>
 tls_cacert    <%= scope.lookupvar('ldap::params::cacert') %>
 <% end -%>
 
-<% if @pam_filter != false then -%>
-pam_filter    <%= @pam_filter %>
+<% if @filter != false then -%>
+pam_filter    <%= @filter %>
 <% end -%>
