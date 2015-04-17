@@ -9,9 +9,7 @@ authenticating identities.  It is a more modern approach for the historcal
 Using `sssd` with this module is easy.
 
 ```Puppet
-class { 'ldap':
-  sssd => true,
-}
+class { 'ldap': }
 ```
 
 

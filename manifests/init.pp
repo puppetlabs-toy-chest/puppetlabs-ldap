@@ -97,8 +97,6 @@ class ldap(
   $nss_passwd     = false,
   $nss_group      = false,
   $nss_shadow     = false,
-  $nslcd          = false,
-  $sssd           = false,
   $pam_filter     = false,
 ) {
 
@@ -119,16 +117,4 @@ class ldap(
   }
 
   file { "${ldap::params::prefix}/${ldap::params::config}": content => template('ldap/ldap.conf.erb'), }
-
-  if $nslcd {
-    include ldap::nslcd
-  } else {
-    class { '::ldap::nslcd': ensure => absent }
-  }
-
-  if $sssd {
-    include ldap::sssd
-  } else {
-    class { '::ldap::sssd': ensure => absent }
-  }
 }
