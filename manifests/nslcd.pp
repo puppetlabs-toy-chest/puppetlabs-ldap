@@ -1,5 +1,15 @@
 class ldap::nslcd (
-  $ensure = 'present',
+  $uri,
+  $base,
+  $ensure         = 'present',
+  $binddn         = undef,
+  $bindpw         = undef,
+  $version        = '3',
+  $timelimit      = 30,
+  $bind_timelimit = 30,
+  $idle_timelimit = 60,
+  $ssl            = false,
+  $ssl_reqcert    = 'never',
 ) {
 
   validate_re($ensure, ['present', 'absent'])
