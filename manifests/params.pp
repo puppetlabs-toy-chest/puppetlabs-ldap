@@ -15,9 +15,22 @@ class ldap::params {
       $sssd_service  = 'sssd'
       $cacert        = '/etc/ssl/certs/ldapcabundle.pem'
     }
+    'FreeBSD': {
+      $package       = 'ldap-utils'
+      $prefix        = '/usr/local/etc/openldap'
+      $owner         = 'root'
+      $group         = '0'
+      $config        = 'ldap.conf'
+      $nslcd_conf    = '/usr/local/etc/nslcd.conf'
+      $nslcd_package = 'nss-pam-ldapd'
+      $nslcd_service = 'nslcd'
+      $sssd_conf     = '/etc/sssd/sssd.conf'
+      $sssd_package  = ['sssd', 'libnss-sss']
+      $sssd_service  = 'sssd'
+      $cacert        = '/etc/ssl/certs/ldapcabundle.pem'
+    }
     default:  {
       fail("Operating system ${::operatingsystem} not supported")
     }
   }
 }
-
