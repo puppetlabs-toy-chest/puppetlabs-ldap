@@ -21,7 +21,7 @@ auth_provider = ldap
 # administrator.
 ldap_schema = <%= @schema %>
 ldap_uri = <%= @uri %>
-ldap_search_base = <%= @search_base %>
+ldap_search_base = <%= @base %>
 # Note that enabling enumeration will have a moderate performance impact.
 # Consequently, the default value for enumeration is FALSE.
 # Refer to the sssd.conf man page for full details.
@@ -29,11 +29,11 @@ ldap_search_base = <%= @search_base %>
 # Allow offline logins by locally storing password hashes (default: false).
 ; cache_credentials = true
 
-<% if @bind_dn -%>
-ldap_default_bind_dn = <%= @bind_dn %>
+<% if @binddn -%>
+ldap_default_bind_dn = <%= @binddn %>
 <% end -%>
-<% if @bind_pw -%>
-ldap_default_authtok = <%= @bind_pw %>
+<% if @bindpw -%>
+ldap_default_authtok = <%= @bindpw %>
 <% end -%>
 <% if @filter -%>
 ldap_access_filter = <%= @filter %>

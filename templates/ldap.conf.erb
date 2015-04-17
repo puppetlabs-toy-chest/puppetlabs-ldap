@@ -31,6 +31,6 @@ tls_reqcert   <%= @ssl_reqcert %>
 tls_cacert    <%= scope.lookupvar('ldap::params::cacert') %>
 <% end -%>
 
-<% if @pam_filter != false then -%>
-pam_filter    <%= @pam_filter %>
+<% if @filter != false then -%>
+pam_filter    <%= @filter %>
 <% end -%>

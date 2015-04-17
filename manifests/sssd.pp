@@ -1,10 +1,10 @@
 class ldap::sssd (
   $uri,
-  $search_base,
+  $base,
   $ensure      = 'present',
   $schema      = 'rfc2307bis', # Use 'member' attribute on group
-  $bind_dn     = undef,
-  $bind_pw     = undef,
+  $binddn      = undef,
+  $bindpw      = undef,
   $filter      = undef,
   $tls_cacert  = undef,
   $tls_reqcert = undef,

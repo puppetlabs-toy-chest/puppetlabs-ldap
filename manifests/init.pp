@@ -97,7 +97,7 @@ class ldap(
   $nss_passwd     = false,
   $nss_group      = false,
   $nss_shadow     = false,
-  $pam_filter     = false,
+  $filter         = false,
 ) {
 
   include ldap::params
