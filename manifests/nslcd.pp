@@ -24,6 +24,7 @@ class ldap::nslcd (
     if $package {
       package { $package:
         ensure => present,
+        before => File[$conf],
         notify => Service[$service]
       }
     }

@@ -23,6 +23,7 @@ class ldap::sssd (
     if $package {
       package { $package:
         ensure => present,
+        before => File[$conf],
         notify => Service[$service]
       }
     }
