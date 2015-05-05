@@ -1,0 +1,21 @@
+{
+  "name": "puppetlabs-ldap",
+  "version": "0.0.1",
+  "author": "Puppet Labs",
+  "license": "Apache-2.0",
+  "summary": "Configures LDAP on clients",
+  "source": "https://github.com/puppetlabs/puppetlabs-ldap",
+  "project_page": "https://forge.puppetlabs.com/puppetlabs/ldap",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-ldap/issues",
+  "tags": ["ldap", "client"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"Debian",
+    "operatingsystemrelease":[ "6.0", "7.0", "6.0" ]
+    }
+   ],
+  "dependencies": [
+    { "name": "puppetlabs/concat", "version_requirement": ">= 1.2.1" }
+  ]
+}
+
