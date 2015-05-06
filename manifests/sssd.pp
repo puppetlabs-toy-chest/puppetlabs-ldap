@@ -8,6 +8,7 @@ class ldap::sssd (
   $filter      = undef,
   $tls_cacert  = undef,
   $tls_reqcert = undef,
+  $enumerate   = false,
 ) {
 
   validate_re($ensure, ['present', 'absent'])
