@@ -25,7 +25,7 @@ class ldap::params {
       $nslcd_package = 'nss-pam-ldapd'
       $nslcd_service = 'nslcd'
       $sssd_conf     = '/etc/sssd/sssd.conf'
-      $sssd_package  = ['sssd', 'libnss-sss']
+      $sssd_package  = 'sssd'
       $sssd_service  = 'sssd'
       $cacert        = '/etc/ssl/certs/ldapcabundle.pem'
     }
