@@ -16,7 +16,7 @@ class ldap::params {
       $cacert        = '/etc/ssl/certs/ldapcabundle.pem'
     }
     'FreeBSD': {
-      $package       = 'ldap-utils'
+      $package       = 'openldap-client'
       $prefix        = '/usr/local/etc/openldap'
       $owner         = 'root'
       $group         = '0'
