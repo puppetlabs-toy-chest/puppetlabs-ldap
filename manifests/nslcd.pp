@@ -9,7 +9,8 @@ class ldap::nslcd (
   $bind_timelimit = 30,
   $idle_timelimit = 60,
   $ssl            = false,
-  $ssl_reqcert    = 'never',
+  $tls_cacert     = undef,
+  $tls_reqcert    = 'never',
 ) {
 
   validate_re($ensure, ['present', 'absent'])

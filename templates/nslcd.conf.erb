@@ -21,8 +21,8 @@ bindpw <%= @bindpw %>
 
 <% if @ssl == true -%>
 ssl           start_tls
-tls_reqcert    <%= @ssl_reqcert %>
-tls_cacertfile <%= scope.lookupvar('ldap::params::cacert') %>
+tls_reqcert    <%= @tls_reqcert %>
+tls_cacertfile <%= @tls_cacert %>
 <% end -%>
 uid nslcd
 gid nslcd

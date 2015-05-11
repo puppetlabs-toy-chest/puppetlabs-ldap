@@ -38,7 +38,7 @@
 #
 #  [ssl]
 #    Enable TLS/SSL negotiation with the server
-#    *Requires*: ssl_cert parameter
+#    *Requires*: tls_cacert parameter
 #    *Optional* (defaults to false)
 #
 #  [nsswitch]
@@ -92,7 +92,8 @@ class ldap(
   $binddn         = false,
   $bindpw         = false,
   $ssl            = false,
-  $ssl_reqcert    = 'never',
+  $tls_cacert     = undef,
+  $tls_reqcert    = 'never',
   $nsswitch       = false,
   $nss_passwd     = false,
   $nss_group      = false,
