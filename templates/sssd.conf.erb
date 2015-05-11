@@ -25,7 +25,11 @@ ldap_search_base = <%= @base %>
 # Note that enabling enumeration will have a moderate performance impact.
 # Consequently, the default value for enumeration is FALSE.
 # Refer to the sssd.conf man page for full details.
+<% if @enumerate == true -%>
+enumerate = true
+<% else -%>
 ; enumerate = false
+<% end -%>
 # Allow offline logins by locally storing password hashes (default: false).
 ; cache_credentials = true
 
