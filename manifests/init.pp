@@ -65,22 +65,7 @@
 #  [nslcd]
 #    If you are going to use nslcd. (defaults to false)
 
-#  [sssd]
-#    If you are going to use sssd. (defaults to false)
-#
-# === Examples
-#
-# class { 'ldap':
-#	uri  => 'ldap://ldapserver00 ldap://ldapserver01',
-#	base => 'dc=suffix',
-# }
-#
-# class { 'ldap':
-#	uri  => 'ldap://ldapserver00',
-#	base => 'dc=suffix',
-#	ssl  => true,
-#	ssl_cert => 'ldapserver00.pem'
-# }
+# === See README for examples
 #
 class ldap(
   $uri,
