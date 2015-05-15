@@ -84,11 +84,12 @@ class ldap(
   $nss_group      = false,
   $nss_shadow     = false,
   $filter         = false,
-) {
+  $package        = $ldap::params::package,
+) inherits ldap::params {
 
   include ldap::params
 
-  package { $ldap::params::package: ensure => $ensure, }
+  package { $package: ensure => $ensure, }
 
   File {
     ensure  => $ensure,
@@ -99,7 +100,7 @@ class ldap(
 
   file { $ldap::params::prefix:
     ensure  => directory,
-    require => Package[$ldap::params::package],
+    require => Package[$package],
   }
 
   file { "${ldap::params::prefix}/${ldap::params::config}": content => template('ldap/ldap.conf.erb'), }
